@@ -3,22 +3,62 @@ import * as API from '../utils/api';
 import { Redirect } from 'react-router-dom';
 import logo from '../logo.svg';
 
+const initialState = {
+    email: '',
+    password: '',
+    inputError: ''
+}
+
 class Login extends Component {
     state = {
-        toHome: false
+        toHome: false,
+        email: '',
+        password: '',
+        inputError: ''
     }
 
-    handleSignIn (e) {
+    handleChange = (e) => {
         e.preventDefault();
 
-        // authenticate user
-        API.fakeAuth.authenticate(() => {
-            this.setState(() => ({
-                toHome: true
-            }))
-        });
+        this.setState({
+            [e.target.name]: e.target.value
+        })
 
-        // set authed user
+    }
+
+    validate = () => {
+        let inputError = '';
+
+        // validate input
+        if (!this.state.email && !this.state.password) {
+            inputError = "email and password are required (just input anything for now)";
+        }
+
+        if (inputError) {
+            this.setState({
+                inputError
+            })
+            return false;
+        }
+        return true;
+    }
+
+    handleSignIn = (e) => {
+        e.preventDefault();
+
+        let isValid = this.validate();
+        if (isValid) {
+
+            // authenticate user
+            API.fakeAuth.authenticate(() => {
+                this.setState(() => ({
+                    toHome: true
+                }))
+            });
+
+            this.setState(initialState);
+        }
+
     }
 
     render() {
@@ -31,9 +71,15 @@ class Login extends Component {
         return (
             <div className='login'>
                 <img src={logo} alt='logo' />
-                <input className='form-input' type='text' placeholder='email'/>
-                <input className='form-input' type='password' placeholder='password'/>
-                <input className='form-btn' onClick={(e) => this.handleSignIn(e)} type='submit' value='Sign in' />
+                <form onSubmit={this.handleSignIn}>
+                    <input className='form-input' onChange={this.handleChange} name='email' type='text' placeholder='email'/>
+                    <input className='form-input' onChange={this.handleChange} name='password' type='password' placeholder='password'/>
+
+                    <button className='form-btn' type='submit'>Sign In</button>
+                    <div style={{color:'red', fontSize: 12}}>
+                        {this.state.inputError}
+                    </div>
+                </form>
             </div>
         );
     }
