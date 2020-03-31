@@ -1,0 +1,42 @@
+.logo-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.logo{
+    height: 80px;
+}
+
+.nav-container{
+    height: 80px;
+    background: black;
+    color: #fff;
+    text-align: center;
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.button-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.log-out-button{
+    height: 40px;
+    width: 115px;
+    border: 1px;
+    font-size: 15px;
+    background: #00c3ff;
+    color: #fff;
+    font-weight: 600;
+}
+
+.main-content{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: 12px auto;
+}
