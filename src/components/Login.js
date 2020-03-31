@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as API from '../utils/api';
 import { Redirect } from 'react-router-dom';
 import logo from '../logo.svg';
 
@@ -10,19 +11,22 @@ class Login extends Component {
     handleSignIn (e) {
         e.preventDefault();
 
-        // validate user
+        // authenticate user
+        API.fakeAuth.authenticate(() => {
+            this.setState(() => ({
+                toHome: true
+            }))
+        });
 
         // set authed user
-
-        this.setState({
-            toHome: true
-        })
     }
 
     render() {
-        if (this.state.toHome === true) {
-            let redirectUrl = '/elections';
-            return <Redirect to={redirectUrl} />
+        const { from } = this.props.location.state || { from: { pathname: '/elections'} }
+        const { toHome } = this.state
+
+        if (toHome === true) {
+            return <Redirect to={from} />
         }
         return (
             <div className='login'>

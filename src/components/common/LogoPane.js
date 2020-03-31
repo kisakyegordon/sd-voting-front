@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom'
+import * as API from '../../utils/api';
 import logo from '../../assets/images/logo192.png';
 import '../styles.css';
 
 class LogoPane extends Component {
-
-    handleLogout = () => console.log('logged out');
+    handleLogout = () => API.fakeAuth.signout(() => this.props.history.push('/'));
     render() {
         return (
             <div className='logo-container'>
@@ -17,4 +18,4 @@ class LogoPane extends Component {
     }
 }
 
-export default LogoPane;
+export default withRouter(LogoPane);
