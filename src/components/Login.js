@@ -30,7 +30,7 @@ class Login extends Component {
         let inputError = '';
 
         // validate input
-        if (!this.state.email && !this.state.password) {
+        if (!this.state.email || !this.state.password) {
             inputError = "email and password are required (just input anything for now)";
         }
 

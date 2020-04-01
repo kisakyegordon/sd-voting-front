@@ -4,6 +4,7 @@ import Register from './components/Register';
 import ElectionList from './components/ElectionList';
 import ElectionDetail from './components/ElectionDetail';
 import Results from './components/Results';
+import NewElection from './components/admin/NewElection';
 import PrivateRoute from './components/PrivateRoute';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
@@ -22,6 +23,7 @@ class App extends Component {
           <PrivateRoute exact path='/elections' component={ElectionList}/>
           <PrivateRoute path='/elections/:id' component={ElectionDetail}/>
           <PrivateRoute path='/results' component={Results}/>
+          <PrivateRoute path='/add' component={NewElection}/>
         </Switch>
       </Router>
     );

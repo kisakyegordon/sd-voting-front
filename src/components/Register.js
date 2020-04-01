@@ -27,7 +27,7 @@ class Register extends Component {
 
         // validate name
         if (!this.state.name) {
-            nameError = "name should not be empty";
+            nameError = "Name field is required";
         }
 
         // validate email
