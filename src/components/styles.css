@@ -1,3 +1,38 @@
+li{
+    list-style: none;
+    display: flex;
+    margin-bottom: 30px;
+    min-width: 550px;
+    justify-content: space-between;
+}
+
+/* Card Image */
+
+.card-container{
+    display: flex;
+    border: 1px solid #e1e1e1;
+    padding: 5px;
+}
+.card-img{
+    height: 210px;
+    border-radius: 5px;
+}
+.card-desc{
+    display: flex;
+    min-width: 230px;
+}
+.vote-button{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+/* Election List */
+.main-content .election-list{
+    font-size: 30px;
+    font-weight: 600;
+}
+
 .logo-container{
     display: flex;
     justify-content: space-evenly;
@@ -40,3 +75,4 @@
     width: 80%;
     margin: 12px auto;
 }
+
