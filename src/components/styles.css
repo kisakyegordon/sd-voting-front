@@ -1,8 +1,25 @@
+ul{
+    padding: 0;
+    width: 115vh;
+}
+
 li{
     list-style: none;
     display: flex;
     margin-bottom: 30px;
     min-width: 550px;
+    justify-content: space-between;
+}
+
+li.election-list{
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.election-li{
+    display: flex;
     justify-content: space-between;
 }
 
