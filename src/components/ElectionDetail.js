@@ -30,7 +30,7 @@ class ElectionDetail extends Component {
                     <div>
                     <ul>
                         {
-                            electionDetail[0].vote_options.map( 
+                     electionDetail[0].candidates.map( 
                                 (item, index) => 
                                 <li key={index}>
                                     <Card candidate={item} />
