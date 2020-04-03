@@ -13,7 +13,7 @@ class AdminElectionList extends Component {
         delete: false
     }
 
-    handleEdit = id => this.props.history.push(`/add/`+id);
+    handleEdit = id => this.props.history.push(`/edit/`+id);
 
     handleDelete = id => {
         console.log("Delete this election: ", id);

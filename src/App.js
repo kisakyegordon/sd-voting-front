@@ -24,7 +24,8 @@ class App extends Component {
           <PrivateRoute exact path='/elections' component={ElectionList}/>
           <PrivateRoute path='/elections/:id' component={ElectionDetail}/>
           <PrivateRoute path='/results' component={Results}/>
-          <PrivateRoute path='/add/:id' component={NewElection}/>
+          <PrivateRoute exact path='/add/' component={NewElection}/>
+          <PrivateRoute path='/edit/:id' component={NewElection}/>
           <PrivateRoute path='/manage-elections' component={AdminElectionList}/>
         </Switch>
       </Router>
