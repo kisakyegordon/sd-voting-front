@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as API from '../utils/api';
 import { Redirect } from 'react-router-dom';
-import logo from '../logo.svg';
+import login from '../assets/images/login.svg';
 
 const initialState = {
     email: '',
@@ -69,18 +69,25 @@ class Login extends Component {
             return <Redirect to={from} />
         }
         return (
-            <div className='login'>
-                <img src={logo} alt='logo' />
-                <form onSubmit={this.handleSignIn}>
-                    <input className='form-input' onChange={this.handleChange} name='email' type='text' placeholder='email'/>
-                    <input className='form-input' onChange={this.handleChange} name='password' type='password' placeholder='password'/>
+            <div className='auth-container'>
+                <div className='auth-img'>
+                    <img className='login-img' src={login} alt='login-img' />
+                </div>
+                <div className='login-container'>
+                <div className='login'>
+                    <form onSubmit={this.handleSignIn}>
+                        <h4>LogIn</h4>
+                        <input className='form-input' onChange={this.handleChange} name='email' type='text' placeholder='email'/>
+                        <input className='form-input' onChange={this.handleChange} name='password' type='password' placeholder='password'/>
 
-                    <button className='form-btn' type='submit'>Sign In</button>
-                    <div style={{color:'red', fontSize: 12}}>
-                        {this.state.inputError}
-                    </div>
-                </form>
+                        <button className='form-btn' type='submit'>Sign In</button>
+                        <div className='error'>
+                            {this.state.inputError}
+                        </div>
+                    </form>
+                </div>
             </div>
+        </div>
         );
     }
 }

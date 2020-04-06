@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import login from '../assets/images/user.svg';
+
 
 const initialState = {
     name: '',
@@ -64,29 +66,37 @@ class Register extends Component {
 
     render() {
         return (
-            <div>
-                <div className='register'>
-                    <h2>Register</h2>
-                    <form onSubmit={this.handleSubmit}>
-                        <input className='form-input' onChange={this.handleChange} name='name' value={this.state.name} placeholder='name'/>
-                        <div style={{color:'red', fontSize: 12}}>
-                            {this.state.nameError}
-                        </div>
+            <div className='auth-container'>
+            <div className='auth-img'>
+                <img className='login-img' src={login} alt='login-img' />
+            </div>
+            <div className='login-container'>
+            <div className='login'>
+                <form onSubmit={this.handleSubmit}>
+                    <h4>Register</h4>
+                    <input className='form-input' onChange={this.handleChange}  name='name' value={this.state.name} placeholder='name'/>
+                    <div className='error-thin'>
+                        {this.state.nameError}
+                    </div>
 
-                        <input className='form-input' onChange={this.handleChange} name='email' value={this.state.email} placeholder='email'/>
-                        <div style={{color:'red', fontSize: 12}}>
+                    <input className='form-input' onChange={this.handleChange} name='email' value={this.state.email} placeholder='email'/>
+                        <div className='error-thin'>
                             {this.state.emailError}
                         </div>
 
                         <input className='form-input' onChange={this.handleChange} name='password' value={this.state.password} type='password' placeholder='password'/>
-                        <div style={{color:'red', fontSize: 12}}>
+                        <div className='error-thin'>
                             {this.state.passwordError}
                         </div>
 
-                        <button className='form-btn' type='submit'>Sign Up</button>
-                    </form>
-                </div>
+                    <button className='form-btn' type='submit'>Sign In</button>
+                    <div className='error'>
+                        {this.state.inputError}
+                    </div>
+                </form>
             </div>
+        </div>
+    </div>
         );
     }
 }

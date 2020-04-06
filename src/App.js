@@ -4,6 +4,7 @@ import Register from './components/Register';
 import ElectionList from './components/ElectionList';
 import ElectionDetail from './components/ElectionDetail';
 import Results from './components/Results';
+import NotFound from './components/NotFound';
 import NewElection from './components/admin/NewElection';
 import AdminElectionList from './components/admin/ManageElection';
 import PrivateRoute from './components/PrivateRoute';
@@ -27,6 +28,7 @@ class App extends Component {
           <PrivateRoute exact path='/add/' component={NewElection}/>
           <PrivateRoute path='/edit/:id' component={NewElection}/>
           <PrivateRoute path='/manage-elections' component={AdminElectionList}/>
+          <Route component={NotFound} />
         </Switch>
       </Router>
     );

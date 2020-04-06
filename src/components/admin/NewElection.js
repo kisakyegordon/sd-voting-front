@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { Button } from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
 import {elections} from "../sampleData";
 
 const initialState = {
@@ -151,7 +153,15 @@ class NewElection extends Component {
                                         value={candidate.name}
                                         placeholder={'Candidate #'.concat(index+1)}
                                         autoComplete='off' />
-                                    <button onClick={(e) => this.removeCandidate(e, candidate.id)} style={{color:'red'}}>Remove</button>
+                                    <Button
+                                        variant="contained"
+                                        color="secondary"
+                                        startIcon={<DeleteIcon />}
+                                        onClick={(e) => this.removeCandidate(e, candidate.id)}
+                                    >
+                                        Remove
+                                    </Button>
+                                    {/* <button onClick={(e) => this.removeCandidate(e, candidate.id)} style={{color:'red'}}>Remove</button> */}
                                 </div>
                             )
                         })
@@ -159,8 +169,10 @@ class NewElection extends Component {
                     <div style={{color:'red', fontSize: 12}}>
                         {this.state.candidateError}
                     </div>
-                    <button className='form-btn' onClick={(e) => this.addCandidate(e)}>Add Candidate</button>
-                    <button className='form-btn' onClick={this.handleSubmit} type='submit'>Save</button>
+                    <div className='button-section'>
+                        <button className='form-btn' onClick={(e) => this.addCandidate(e)}>Add Candidate</button>
+                        <button className='form-btn' onClick={this.handleSubmit} type='submit'>Save</button>
+                    </div>
                 </form>
             </div>
         );

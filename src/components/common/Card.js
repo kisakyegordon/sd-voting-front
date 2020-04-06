@@ -9,8 +9,8 @@ class Card extends Component {
                 <img className='card-img' src={this.props.candidate.avatar} alt='avatar' />
                 <div className='card-desc'>
                     <h3>Name:  </h3>
-                    <h4>{this.props.candidate.first_name}</h4>
-                    <h4>{this.props.candidate.last_name}</h4>
+                    <h3>{this.props.candidate.first_name}</h3>
+                    <h3>{this.props.candidate.last_name}</h3>
                 </div>
             </div>
         );
