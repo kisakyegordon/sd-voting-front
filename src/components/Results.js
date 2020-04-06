@@ -16,10 +16,10 @@ class Results extends Component {
                     <div>
                     <ul>
                         {
-                            elections[0].vote_options.map( 
+                            elections[0].candidates.map( 
                                 (item, index) => 
-                                <li key={index}>
-                                    <h4>{index + 1}</h4>
+                                <li className='results' key={index}>
+                                    <h3>{index + 1}</h3>
                                     <Card candidate={item} />
                                     <h4>30 Votes</h4>
                                 </li> )
